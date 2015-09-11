@@ -2,6 +2,9 @@
 # find the largest continuous sum.
 # Eg. [1, 1, -3, 3, 5] => 8
 
+# Time complexity O(n)
+# Space complexity O(1)
+
 def largest_continuous_sum(array)
   largest_sum = 0
   current_sum = 0
