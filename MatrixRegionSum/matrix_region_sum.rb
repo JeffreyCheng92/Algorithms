@@ -28,6 +28,11 @@ end
 # Time complexity O(mn) where m is number of rows and n is number of columns
 # Space complexity O(n)
 
+# Another way to do this would be to initialize the array with an extra
+# row and column on top and to the left full of zeroes to act as a buffer.
+# This eliminates the need for the conditional zero checks in both the setup
+# and the method itself.
+
 def dynamic_setup(matrix)
   array = Array.new(matrix.length) { Array.new }
 
