@@ -1,6 +1,18 @@
+# The calculator takes in a string of integers and operations with no spaces
+# and returns the evaluated expression.
+
 def calculate(input)
   # Builds an array of numbers and operations
   input_array = input.split("")
+
+  # Joins digits if multiple digits
+  (input_array.length - 1).downto(0) do |index|
+    if !(input_array[index] =~ /\d+/).nil? &&
+        !(input_array[index - 1] =~ /\d+/).nil? && index - 1 >= 0
+      input_array[index - 1] += input_array[index]
+      input_array.delete_at(index)
+    end
+  end
 
   # Stack of the indices of parentheses to evaluate them first
   priority_expressions_idx = []
@@ -109,4 +121,5 @@ def divide(num1, num2)
   num1.to_i / num2.to_i
 end
 
-puts calculate("2+(2*(4-(3+(7*3)/3)*1)-5)")
+# puts calculate("13+14")
+# puts calculate("2+(2*(4-(3+(17*3)/3)*1)-5)")
